@@ -4,6 +4,16 @@ Adds a compact "easy-sort" mode to Repeater and Repeater Matrix, making those fi
 
 The module also enhances Repeater Matrix by allowing a colour to be set for each matrix type. This colour is used in the item headers and in the "add new" links, to help visually distinguish different matrix types in the inputfield.
 
+## Screencasts
+
+#### A Repeater field
+
+![res-1](https://user-images.githubusercontent.com/1538852/132089653-1e56cebe-411a-44c5-8a32-ce730634c9ed.gif)
+
+#### A Repeater Matrix field with custom header colours
+
+![res-2](https://user-images.githubusercontent.com/1538852/132089655-01e02396-b095-455b-ba0c-dcd03dfcfccb.gif)
+
 ## Easy-sort mode
 
 Each Repeater/Matrix item gets an double-arrow icon in the item header. Click this icon to enter easy-sort mode.
@@ -21,16 +31,6 @@ While in easy-sort mode:
 In the field settings for Repeater and Repeater Matrix fields you can define a minimum width in pixels for items in easy-sort mode. While in easy-sort mode the items will be sized to neatly fill the available width on any screen size but will never be narrower than the width you set here.
 
 In the field settings for Repeater Matrix you can define a custom header colour for each matrix type using an HTML "color" type input. The default colour for this type of input is black, so when black is selected in the input it means that no custom colour will be applied to the header.
-
-## Screencasts
-
-#### A Repeater field
-
-![res-1](https://user-images.githubusercontent.com/1538852/132089653-1e56cebe-411a-44c5-8a32-ce730634c9ed.gif)
-
-#### A Repeater Matrix field with custom header colours
-
-![res-2](https://user-images.githubusercontent.com/1538852/132089655-01e02396-b095-455b-ba0c-dcd03dfcfccb.gif)
 
 ## Exclusions
 
