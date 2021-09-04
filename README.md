@@ -2,7 +2,7 @@
 
 Adds a compact "easy-sort" mode to Repeater and Repeater Matrix, making those fields easier to sort when there are a large number of items.
 
-The module also enhances Repeater Matrix by allowing a colour to be set for each matrix type. This colour is used in the item headers and in the "add" links, to help visually distinguish different matrix types in the inputfield.
+The module also enhances Repeater Matrix by allowing a colour to be set for each matrix type. This colour is used in the item headers and in the "add new" links, to help visually distinguish different matrix types in the inputfield.
 
 ## Easy-sort mode
 
