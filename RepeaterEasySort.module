@@ -1,0 +1,169 @@
+<?php namespace ProcessWire;
+
+class RepeaterEasySort extends WireData implements Module {
+
+	/**
+	 * Module information
+	 */
+	public static function getModuleInfo() {
+		return array(
+			'title' => 'Repeater Easy Sort',
+			'summary' => 'Adds a compact "easy-sort" mode to Repeater and Repeater Matrix, making those fields easier to sort when there are a large number of items.',
+			'version' => '0.1.0',
+			'author' => 'Robin Sallis',
+			'href' => 'https://github.com/Toutouwai/RepeaterEasySort',
+			'icon' => 'arrows-v',
+			'autoload' => 'template=admin',
+			'requires' => 'ProcessWire>=3.0.0, PHP>=5.4.0',
+		);
+	}
+
+	protected $default_min_width = 300;
+
+	/**
+	 * Construct
+	 */
+	public function __construct() {
+		parent::__construct();
+	}
+
+	/**
+	 * Ready
+	 */
+	public function ready() {
+		$this->addHookAfter('FieldtypeRepeater::getConfigInputfields', $this, 'addRepeaterConfig');
+		$this->addHookAfter('FieldtypeRepeaterMatrix::getConfigInputfields', $this, 'addMatrixConfig');
+		$this->addHookAfter('InputfieldRepeater::renderReadyHook', $this, 'afterRenderReady');
+		$this->addHookBefore('InputfieldRepeaterMatrix::render', $this, 'beforeMatrixRender');
+	}
+
+	/**
+	 * After FieldtypeRepeater::getConfigInputfields
+	 *
+	 * @param HookEvent $event
+	 */
+	function addRepeaterConfig(HookEvent $event) {
+		$field = $event->arguments(0);
+		/** @var InputfieldWrapper $wrapper */
+		$wrapper = $event->return;
+		$modules = $this->wire()->modules;
+
+		// Repeater fields using the depth option are not supported
+		if($field->repeaterDepth) return;
+
+		// Add minimum width input
+		/** @var InputfieldInteger $f */
+		$f = $modules->get('InputfieldInteger');
+		$f_name = "res_min_width";
+		$f->name = $f_name;
+		$f->label = $this->_('RepeaterEasySort: minimum width of items in easy-sort mode (pixels)');
+		$f->inputType = 'number';
+		$f->value = $field->$f_name ?: $this->default_min_width;
+		$wrapper->add($f);
+	}
+
+	/**
+	 * After FieldtypeRepeaterMatrix::getConfigInputfields
+	 *
+	 * @param HookEvent $event
+	 */
+	function addMatrixConfig(HookEvent $event) {
+		$field = $event->arguments(0);
+		/** @var InputfieldWrapper $wrapper */
+		$wrapper = $event->return;
+		$modules = $this->wire()->modules;
+
+		// Add colour inputs
+		$matrix_types = $field->type->getMatrixTypes($field);
+		foreach($matrix_types as $matrix_type) {
+			// Get 'head' field (the last in matrix type section)
+			$head = $wrapper->getChildByName("matrix{$matrix_type}_head");
+			if(!$head) continue;
+
+			// Add input type "color"
+			/** @var InputfieldText $f */
+			$f = $modules->get('InputfieldText');
+			$f_name = "colour_{$matrix_type}";
+			$f->name = $f_name;
+			$f->label = $this->_('Header colour');
+			$f->description = $this->_('Note: black is the default colour for input type "color", so when black is selected it means that no custom colour will be applied to the header.');
+			$f->type = 'color';
+			$f->value = $field->$f_name;
+			if($this->isDefaultColour($f->value)) $f->collapsed = Inputfield::collapsedYes;
+			$wrapper->insertAfter($f, $head);
+		}
+	}
+
+	/**
+	 * After InputfieldRepeater::renderReadyHook
+	 *
+	 * @param HookEvent $event
+	 */
+	function afterRenderReady(HookEvent $event) {
+		/** @var InputfieldRepeater $inputfield */
+		$inputfield = $event->object;
+		$field = $inputfield->hasField;
+		if(!$field) return;
+
+		// Repeater fields using the depth option are not supported
+		if($field->repeaterDepth) return;
+
+		// Add wrap class
+		$inputfield->wrapClass('RepeaterEasySort');
+
+		// Add file assets
+		$config = $this->wire()->config;
+		$info = $this->getModuleInfo();
+		$version = $info['version'];
+		$config->styles->add($config->urls->{$this} . "{$this}.css?v={$version}");
+		$config->scripts->add($config->urls->{$this} . "{$this}.js?v={$version}");
+
+		// Add JS config
+		$data = [
+			'labels' => [
+				'sort' => $this->_('Enter easy-sort mode'),
+				'exit' => $this->_('Exit easy-sort mode'),
+			],
+		];
+		$this->wire()->config->js('RepeaterEasySort', $data);
+
+		// Add min-width data attribute
+		$inputfield->wrapAttr('data-res-min-width', $field->res_min_width ?: $this->default_min_width);
+	}
+
+	/**
+	 * Before InputfieldRepeaterMatrix::render
+	 *
+	 * @param HookEvent $event
+	 */
+	function beforeMatrixRender(HookEvent $event) {
+		/** @var InputfieldRepeaterMatrix */
+		$inputfield = $event->object;
+		$field = $inputfield->hasField;
+		if(!$field) return;
+
+		$matrix_types = $field->type->getMatrixTypes($field);
+		$css = '';
+		foreach($matrix_types as $matrix_type) {
+			$f_name = "colour_{$matrix_type}";
+			$colour = $field->$f_name;
+			if($this->isDefaultColour($colour)) continue;
+			$css .= <<<EOT
+.Inputfields .Inputfield_{$field->name} .InputfieldContent .InputfieldRepeaterItem[data-type='$matrix_type'] > .InputfieldHeader { background-color:$colour; outline-color:$colour; }
+.Inputfields .Inputfield_{$field->name} .InputfieldRepeaterAddLink[data-type='$matrix_type'] { color:$colour; }
+EOT;
+		}
+		$inputfield->appendMarkup = "<style>$css</style>";
+	}
+
+	/**
+	 * Is the value of an input type "color" the default colour?
+	 *
+	 * @param string $value
+	 * @return bool
+	 */
+	function isDefaultColour($value) {
+		return $value === '' || $value === '#000000';
+	}
+
+}

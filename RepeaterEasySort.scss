@@ -1,0 +1,32 @@
+.Inputfields .InputfieldRepeater.RepeaterEasySort {
+	.InputfieldRepeaterItemControls {
+		.easy-sort { cursor:pointer; float:right; width:16px; text-align:center; margin-left:-8px; margin-right:10px; }
+	}
+	.InputfieldRepeaterItem.easy-sort-focus > .InputfieldHeader { background-color:black !important; outline-color:black !important;
+		.InputfieldRepeaterItemControls { background-color:black !important; }
+	}
+	&.easy-sort-active {
+		> .InputfieldContent > .Inputfields { margin-left:-4px; margin-right:-4px; width:100%;
+			> .InputfieldRepeaterItem { padding-left:4px; padding-right:4px; background:none;
+				&:not(.InputfieldStateCollapsed) { width:100% !important;
+					> .InputfieldHeader {
+						> .InputfieldRepeaterItemControls { display:block !important;
+							> .easy-sort { display:none; }
+						}
+					}
+				}
+				> .InputfieldHeader {
+					> .InputfieldRepeaterItemControls { display:none !important; }
+				}
+			}
+		}
+		&.width-1-1 > .InputfieldContent > .Inputfields > .InputfieldRepeaterItem { width:100%; }
+		&.width-1-2 > .InputfieldContent > .Inputfields > .InputfieldRepeaterItem { width:50%; }
+		&.width-1-3 > .InputfieldContent > .Inputfields > .InputfieldRepeaterItem { width:33.3333%; }
+		&.width-1-4 > .InputfieldContent > .Inputfields > .InputfieldRepeaterItem { width:25%; }
+		&.width-1-5 > .InputfieldContent > .Inputfields > .InputfieldRepeaterItem { width:20%; }
+		&.width-1-6 > .InputfieldContent > .Inputfields > .InputfieldRepeaterItem { width:16.6666%; }
+		&.width-1-7 > .InputfieldContent > .Inputfields > .InputfieldRepeaterItem { width:14.2857%; }
+		&.width-1-8 > .InputfieldContent > .Inputfields > .InputfieldRepeaterItem { width:12.5%; }
+	}
+}

@@ -1,0 +1,44 @@
+.Inputfields .InputfieldRepeater.RepeaterEasySort .InputfieldRepeaterItemControls .easy-sort {
+  cursor: pointer;
+  float: right;
+  width: 16px;
+  text-align: center;
+  margin-left: -8px;
+  margin-right: 10px; }
+.Inputfields .InputfieldRepeater.RepeaterEasySort .InputfieldRepeaterItem.easy-sort-focus > .InputfieldHeader {
+  background-color: black !important;
+  outline-color: black !important; }
+  .Inputfields .InputfieldRepeater.RepeaterEasySort .InputfieldRepeaterItem.easy-sort-focus > .InputfieldHeader .InputfieldRepeaterItemControls {
+    background-color: black !important; }
+.Inputfields .InputfieldRepeater.RepeaterEasySort.easy-sort-active > .InputfieldContent > .Inputfields {
+  margin-left: -4px;
+  margin-right: -4px;
+  width: 100%; }
+  .Inputfields .InputfieldRepeater.RepeaterEasySort.easy-sort-active > .InputfieldContent > .Inputfields > .InputfieldRepeaterItem {
+    padding-left: 4px;
+    padding-right: 4px;
+    background: none; }
+    .Inputfields .InputfieldRepeater.RepeaterEasySort.easy-sort-active > .InputfieldContent > .Inputfields > .InputfieldRepeaterItem:not(.InputfieldStateCollapsed) {
+      width: 100% !important; }
+      .Inputfields .InputfieldRepeater.RepeaterEasySort.easy-sort-active > .InputfieldContent > .Inputfields > .InputfieldRepeaterItem:not(.InputfieldStateCollapsed) > .InputfieldHeader > .InputfieldRepeaterItemControls {
+        display: block !important; }
+        .Inputfields .InputfieldRepeater.RepeaterEasySort.easy-sort-active > .InputfieldContent > .Inputfields > .InputfieldRepeaterItem:not(.InputfieldStateCollapsed) > .InputfieldHeader > .InputfieldRepeaterItemControls > .easy-sort {
+          display: none; }
+    .Inputfields .InputfieldRepeater.RepeaterEasySort.easy-sort-active > .InputfieldContent > .Inputfields > .InputfieldRepeaterItem > .InputfieldHeader > .InputfieldRepeaterItemControls {
+      display: none !important; }
+.Inputfields .InputfieldRepeater.RepeaterEasySort.easy-sort-active.width-1-1 > .InputfieldContent > .Inputfields > .InputfieldRepeaterItem {
+  width: 100%; }
+.Inputfields .InputfieldRepeater.RepeaterEasySort.easy-sort-active.width-1-2 > .InputfieldContent > .Inputfields > .InputfieldRepeaterItem {
+  width: 50%; }
+.Inputfields .InputfieldRepeater.RepeaterEasySort.easy-sort-active.width-1-3 > .InputfieldContent > .Inputfields > .InputfieldRepeaterItem {
+  width: 33.3333%; }
+.Inputfields .InputfieldRepeater.RepeaterEasySort.easy-sort-active.width-1-4 > .InputfieldContent > .Inputfields > .InputfieldRepeaterItem {
+  width: 25%; }
+.Inputfields .InputfieldRepeater.RepeaterEasySort.easy-sort-active.width-1-5 > .InputfieldContent > .Inputfields > .InputfieldRepeaterItem {
+  width: 20%; }
+.Inputfields .InputfieldRepeater.RepeaterEasySort.easy-sort-active.width-1-6 > .InputfieldContent > .Inputfields > .InputfieldRepeaterItem {
+  width: 16.6666%; }
+.Inputfields .InputfieldRepeater.RepeaterEasySort.easy-sort-active.width-1-7 > .InputfieldContent > .Inputfields > .InputfieldRepeaterItem {
+  width: 14.2857%; }
+.Inputfields .InputfieldRepeater.RepeaterEasySort.easy-sort-active.width-1-8 > .InputfieldContent > .Inputfields > .InputfieldRepeaterItem {
+  width: 12.5%; }
