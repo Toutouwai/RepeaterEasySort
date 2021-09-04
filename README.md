@@ -24,11 +24,11 @@ In the field settings for Repeater Matrix you can define a custom header colour 
 
 ## Screencasts
 
-####A Repeater field
+#### A Repeater field
 
 ![res-1](https://user-images.githubusercontent.com/1538852/132089653-1e56cebe-411a-44c5-8a32-ce730634c9ed.gif)
 
-####A Repeater Matrix field with custom header colours
+#### A Repeater Matrix field with custom header colours
 
 ![res-2](https://user-images.githubusercontent.com/1538852/132089655-01e02396-b095-455b-ba0c-dcd03dfcfccb.gif)
 
