@@ -13,11 +13,17 @@
 .Inputfields .InputfieldRepeater.RepeaterEasySort.easy-sort-active > .InputfieldContent > .Inputfields {
   margin-left: -4px;
   margin-right: -4px;
-  width: 100%; }
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap; }
+  .AdminThemeDefault .Inputfields .InputfieldRepeater.RepeaterEasySort.easy-sort-active > .InputfieldContent > .Inputfields, .AdminThemeReno .Inputfields .InputfieldRepeater.RepeaterEasySort.easy-sort-active > .InputfieldContent > .Inputfields {
+    margin-bottom: 7px; }
   .Inputfields .InputfieldRepeater.RepeaterEasySort.easy-sort-active > .InputfieldContent > .Inputfields > .InputfieldRepeaterItem {
     padding-left: 4px;
     padding-right: 4px;
     background: none; }
+    .AdminThemeDefault .Inputfields .InputfieldRepeater.RepeaterEasySort.easy-sort-active > .InputfieldContent > .Inputfields > .InputfieldRepeaterItem, .AdminThemeReno .Inputfields .InputfieldRepeater.RepeaterEasySort.easy-sort-active > .InputfieldContent > .Inputfields > .InputfieldRepeaterItem {
+      margin-bottom: 8px; }
     .Inputfields .InputfieldRepeater.RepeaterEasySort.easy-sort-active > .InputfieldContent > .Inputfields > .InputfieldRepeaterItem:not(.InputfieldStateCollapsed) {
       width: 100% !important; }
       .Inputfields .InputfieldRepeater.RepeaterEasySort.easy-sort-active > .InputfieldContent > .Inputfields > .InputfieldRepeaterItem:not(.InputfieldStateCollapsed) > .InputfieldHeader > .InputfieldRepeaterItemControls {

@@ -34,7 +34,7 @@
 			$inputfield.addClass('width-1-' + divisor);
 
 			// Add exit button
-			$content.children('.InputfieldRepeaterAddItem').after('<button type="button" class="easy-sort-exit ui-button ui-priority-secondary">' + rs_config.labels.exit + '</button>');
+			$content.children('.InputfieldRepeaterAddItem').after('<button type="button" class="easy-sort-exit ui-button ui-state-default ui-priority-secondary"><span class="ui-button-text">' + rs_config.labels.exit + '</span></button>');
 
 			// Add focus class
 			$item.addClass('easy-sort-focus');

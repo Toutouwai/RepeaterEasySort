@@ -6,8 +6,10 @@
 		.InputfieldRepeaterItemControls { background-color:black !important; }
 	}
 	&.easy-sort-active {
-		> .InputfieldContent > .Inputfields { margin-left:-4px; margin-right:-4px; width:100%;
+		> .InputfieldContent > .Inputfields { margin-left:-4px; margin-right:-4px; width:100%; display:flex; flex-wrap:wrap;
+			.AdminThemeDefault &, .AdminThemeReno & { margin-bottom:7px; }
 			> .InputfieldRepeaterItem { padding-left:4px; padding-right:4px; background:none;
+				.AdminThemeDefault &, .AdminThemeReno & { margin-bottom:8px; }
 				&:not(.InputfieldStateCollapsed) { width:100% !important;
 					> .InputfieldHeader {
 						> .InputfieldRepeaterItemControls { display:block !important;

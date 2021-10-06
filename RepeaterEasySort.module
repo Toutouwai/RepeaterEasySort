@@ -9,7 +9,7 @@ class RepeaterEasySort extends WireData implements Module {
 		return array(
 			'title' => 'Repeater Easy Sort',
 			'summary' => 'Adds a compact "easy-sort" mode to Repeater and Repeater Matrix, making those fields easier to sort when there are a large number of items.',
-			'version' => '0.1.0',
+			'version' => '0.1.1',
 			'author' => 'Robin Sallis',
 			'href' => 'https://github.com/Toutouwai/RepeaterEasySort',
 			'icon' => 'arrows-v',
