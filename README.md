@@ -8,17 +8,19 @@ The module also enhances Repeater Matrix by allowing a colour to be set for each
 
 #### A Repeater field
 
-![res-1](https://user-images.githubusercontent.com/1538852/132089653-1e56cebe-411a-44c5-8a32-ce730634c9ed.gif)
+![Repeater field](https://user-images.githubusercontent.com/1538852/132089653-1e56cebe-411a-44c5-8a32-ce730634c9ed.gif)
 
 #### A Repeater Matrix field with custom header colours
 
-![res-2](https://user-images.githubusercontent.com/1538852/132089655-01e02396-b095-455b-ba0c-dcd03dfcfccb.gif)
+![Matrix field](https://user-images.githubusercontent.com/1538852/132089655-01e02396-b095-455b-ba0c-dcd03dfcfccb.gif)
 
 ## Easy-sort mode
 
 There are two ways to enter easy-sort mode.
 
 1\. Click the double-arrow in a Repeater item header. This activates easy-sort mode and also highlights the item with a black background so it's easier to find it in easy-sort mode.
+
+![Item button](https://user-images.githubusercontent.com/1538852/154781534-92cda1af-0a71-4868-bc90-7ef87002b325.png)
 
 2\. Click the horizontal ellipsis icon in the Repeater field header to activate easy-sort mode. To return to normal mode click the vertical ellipsis icon.
 
