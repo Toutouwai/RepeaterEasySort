@@ -9,10 +9,10 @@ class RepeaterEasySort extends WireData implements Module {
 		return array(
 			'title' => 'Repeater Easy Sort',
 			'summary' => 'Adds a compact "easy-sort" mode to Repeater and Repeater Matrix, making those fields easier to sort when there are a large number of items.',
-			'version' => '0.1.1',
+			'version' => '0.2.0',
 			'author' => 'Robin Sallis',
 			'href' => 'https://github.com/Toutouwai/RepeaterEasySort',
-			'icon' => 'arrows-v',
+			'icon' => 'ellipsis-h',
 			'autoload' => 'template=admin',
 			'requires' => 'ProcessWire>=3.0.0, PHP>=5.4.0',
 		);
@@ -51,15 +51,34 @@ class RepeaterEasySort extends WireData implements Module {
 		// Repeater fields using the depth option are not supported
 		if($field->repeaterDepth) return;
 
+		/** @var InputfieldFieldset $fs */
+		$fs = $modules->get('InputfieldFieldset');
+		$fs->name = 'repeater_easy_sort';
+		$fs->label = $this->_('RepeaterEasySort');
+		$fs->icon = 'ellipsis-h';
+		$fs->collapsed = Inputfield::collapsedYes;
+		$fs->wrapClass = 'InputfieldIsOffset';
+		$wrapper->add($fs);
+
 		// Add minimum width input
 		/** @var InputfieldInteger $f */
 		$f = $modules->get('InputfieldInteger');
 		$f_name = "res_min_width";
 		$f->name = $f_name;
-		$f->label = $this->_('RepeaterEasySort: minimum width of items in easy-sort mode (pixels)');
+		$f->label = $this->_('Minimum width of items in easy-sort mode (pixels)');
 		$f->inputType = 'number';
 		$f->value = $field->$f_name ?: $this->default_min_width;
-		$wrapper->add($f);
+		$f->columnWidth = 50;
+		$fs->add($f);
+
+		/** @var InputfieldCheckbox $f */
+		$f = $modules->get('InputfieldCheckbox');
+		$f_name = "res_active_by_default";
+		$f->name = $f_name;
+		$f->label = $this->_('Enable easy-sort mode by default');
+		$f->columnWidth = 50;
+		$f->attr('checked', $field->$f_name === 1 ? 'checked' : '');
+		$fs->add($f);
 	}
 
 	/**
@@ -85,7 +104,7 @@ class RepeaterEasySort extends WireData implements Module {
 			$f = $modules->get('InputfieldText');
 			$f_name = "colour_{$matrix_type}";
 			$f->name = $f_name;
-			$f->label = $this->_('Header colour');
+			$f->label = $this->_('RepeaterEasySort: Header colour');
 			$f->description = $this->_('Note: black is the default colour for input type "color", so when black is selected it means that no custom colour will be applied to the header.');
 			$f->type = 'color';
 			$f->value = $field->$f_name;
@@ -111,6 +130,11 @@ class RepeaterEasySort extends WireData implements Module {
 		// Add wrap class
 		$inputfield->wrapClass('RepeaterEasySort');
 
+		// If easy-sort active by default
+		if($field->res_active_by_default) {
+			$inputfield->wrapClass('res-active-default');
+		}
+
 		// Add file assets
 		$config = $this->wire()->config;
 		$info = $this->getModuleInfo();
@@ -123,6 +147,8 @@ class RepeaterEasySort extends WireData implements Module {
 			'labels' => [
 				'sort' => $this->_('Enter easy-sort mode'),
 				'exit' => $this->_('Exit easy-sort mode'),
+				'sort_mode' => $this->_('Easy-sort mode'),
+				'normal_mode' => $this->_('Normal mode'),
 			],
 		];
 		$this->wire()->config->js('RepeaterEasySort', $data);

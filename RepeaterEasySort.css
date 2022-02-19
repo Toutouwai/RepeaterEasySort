@@ -1,3 +1,28 @@
+.Inputfields .InputfieldRepeater.RepeaterEasySort.res-active-default {
+  height: 0;
+  overflow: hidden;
+  visibility: hidden; }
+  .Inputfields .InputfieldRepeater.RepeaterEasySort.res-active-default.res-active-default-init {
+    height: auto;
+    overflow: visible;
+    visibility: visible; }
+  .Inputfields .InputfieldRepeater.RepeaterEasySort.res-active-default > .InputfieldContent > .easy-sort-exit {
+    display: none !important; }
+.Inputfields .InputfieldRepeater.RepeaterEasySort .easy-sort-mode {
+  float: right;
+  margin-right: 6px; }
+  .Inputfields .InputfieldRepeater.RepeaterEasySort .easy-sort-mode i {
+    margin-left: 5px;
+    margin-right: 5px;
+    color: #e83561;
+    width: 16px;
+    text-align: center; }
+    .Inputfields .InputfieldRepeater.RepeaterEasySort .easy-sort-mode i:hover {
+      color: #d21846; }
+    .Inputfields .InputfieldRepeater.RepeaterEasySort .easy-sort-mode i.res-easy-sort-mode {
+      opacity: 0.5; }
+.Inputfields .InputfieldRepeater.RepeaterEasySort.InputfieldStateCollapsed > .InputfieldHeader > .easy-sort-mode {
+  display: none; }
 .Inputfields .InputfieldRepeater.RepeaterEasySort .InputfieldRepeaterItemControls .easy-sort {
   cursor: pointer;
   float: right;
@@ -5,15 +30,20 @@
   text-align: center;
   margin-left: -8px;
   margin-right: 10px; }
+  .Inputfields .InputfieldRepeater.RepeaterEasySort .InputfieldRepeaterItemControls .easy-sort:hover {
+    opacity: 0.8; }
 .Inputfields .InputfieldRepeater.RepeaterEasySort .InputfieldRepeaterItem.easy-sort-focus > .InputfieldHeader {
   background-color: black !important;
   outline-color: black !important; }
   .Inputfields .InputfieldRepeater.RepeaterEasySort .InputfieldRepeaterItem.easy-sort-focus > .InputfieldHeader .InputfieldRepeaterItemControls {
     background-color: black !important; }
+.Inputfields .InputfieldRepeater.RepeaterEasySort.easy-sort-active .easy-sort-mode .res-easy-sort-mode {
+  opacity: 1; }
+.Inputfields .InputfieldRepeater.RepeaterEasySort.easy-sort-active .easy-sort-mode .res-normal-mode {
+  opacity: 0.5; }
 .Inputfields .InputfieldRepeater.RepeaterEasySort.easy-sort-active > .InputfieldContent > .Inputfields {
   margin-left: -4px;
   margin-right: -4px;
-  width: 100%;
   display: flex;
   flex-wrap: wrap; }
   .AdminThemeDefault .Inputfields .InputfieldRepeater.RepeaterEasySort.easy-sort-active > .InputfieldContent > .Inputfields, .AdminThemeReno .Inputfields .InputfieldRepeater.RepeaterEasySort.easy-sort-active > .InputfieldContent > .Inputfields {
@@ -48,3 +78,5 @@
   width: 14.2857%; }
 .Inputfields .InputfieldRepeater.RepeaterEasySort.easy-sort-active.width-1-8 > .InputfieldContent > .Inputfields > .InputfieldRepeaterItem {
   width: 12.5%; }
+.Inputfields .InputfieldRepeater.RepeaterEasySort .easy-sort-exit i {
+  margin-right: 5px; }
