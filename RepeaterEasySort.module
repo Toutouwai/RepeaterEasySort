@@ -9,7 +9,7 @@ class RepeaterEasySort extends WireData implements Module {
 		return array(
 			'title' => 'Repeater Easy Sort',
 			'summary' => 'Adds a compact "easy-sort" mode to Repeater and Repeater Matrix, making those fields easier to sort when there are a large number of items.',
-			'version' => '0.2.0',
+			'version' => '0.2.1',
 			'author' => 'Robin Sallis',
 			'href' => 'https://github.com/Toutouwai/RepeaterEasySort',
 			'icon' => 'ellipsis-h',
@@ -47,6 +47,9 @@ class RepeaterEasySort extends WireData implements Module {
 		/** @var InputfieldWrapper $wrapper */
 		$wrapper = $event->return;
 		$modules = $this->wire()->modules;
+		
+		// Not for FieldsetPage
+		if($field->type instanceof FieldtypeFieldsetPage) return;
 
 		// Repeater fields using the depth option are not supported
 		if($field->repeaterDepth) return;
@@ -123,6 +126,9 @@ class RepeaterEasySort extends WireData implements Module {
 		$inputfield = $event->object;
 		$field = $inputfield->hasField;
 		if(!$field) return;
+
+		// Not for FieldsetPage
+		if($field->type instanceof FieldtypeFieldsetPage) return;
 
 		// Repeater fields using the depth option are not supported
 		if($field->repeaterDepth) return;
