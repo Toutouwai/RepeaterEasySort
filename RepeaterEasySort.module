@@ -14,7 +14,7 @@ class RepeaterEasySort extends WireData implements Module {
 			'href' => 'https://github.com/Toutouwai/RepeaterEasySort',
 			'icon' => 'ellipsis-h',
 			'autoload' => 'template=admin',
-			'requires' => 'ProcessWire>=3.0.0, PHP>=5.4.0',
+			'requires' => 'ProcessWire>=3.0.110, PHP>=5.4.0',
 		);
 	}
 
@@ -60,7 +60,7 @@ class RepeaterEasySort extends WireData implements Module {
 		$fs->label = $this->_('RepeaterEasySort');
 		$fs->icon = 'ellipsis-h';
 		$fs->collapsed = Inputfield::collapsedYes;
-		$fs->wrapClass = 'InputfieldIsOffset';
+		$fs->wrapClass('InputfieldIsOffset');
 		$wrapper->add($fs);
 
 		// Add minimum width input
